@@ -1,0 +1,20 @@
+
+SECTION asm_lib
+PUBLIC PLOTSUB
+
+EXTERN OURPIXADD
+
+INCLUDE "../../z88dk-zxspectrum-equates.asm"
+
+.PLOTSUB		LD (COORDS),BC
+			CALL OURPIXADD
+			LD B,A
+			INC B
+			LD A,1
+.PLOTLOOP		RRCA
+			DJNZ PLOTLOOP
+			LD B,A
+			LD A,(HL)
+			OR B
+			LD (HL),A
+			RET

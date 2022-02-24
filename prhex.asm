@@ -1,0 +1,56 @@
+
+SECTION asm_lib
+PUBLIC PRHEX
+PUBLIC PRHEX12
+
+EXTERN PRASCII
+EXTERN PRASCII12
+
+;INCLUDE "../../z88dk-zxspectrum-equates.asm"
+
+;/*
+;
+; . . . . . . . . . . .
+; Print Routines
+;
+;*/
+
+.PRHEX		PUSH AF
+			RRCA
+			RRCA
+			RRCA
+			RRCA
+			AND $0F					;// %00001111
+			CP $0A
+			JR C,PRHNC1
+			ADD A,7
+.PRHNC1		ADD A,$30
+			CALL PRASCII
+			POP AF
+			AND $0F					;// %00001111
+			CP $0A
+			JR C,PRHNC2
+			ADD A,7
+.PRHNC2		ADD A,$30
+			CALL PRASCII
+			RET
+
+.PRHEX12	PUSH AF
+			RRCA
+			RRCA
+			RRCA
+			RRCA
+			AND $0F					;// %00001111
+			CP $0A
+			JR C,PRH12NC1
+			ADD A,7
+.PRH12NC1	ADD A,$30
+			CALL PRASCII12
+			POP AF
+			AND $0F					;// %00001111
+			CP $0A
+			JR C,PRH12NC2
+			ADD A,7
+.PRH12NC2	ADD A,$30
+			CALL PRASCII12
+			RET

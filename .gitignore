@@ -1,0 +1,18 @@
+# :dbolli:20220224 14:28:17 Added
+
+# ignore all .o, .lib, .map. .def, .sym, .bin, .tap, .lst and .lis files
+*.o
+*.lib
+*.map
+*.def
+*.sym
+*.bin
+*.tap
+*.lst
+*.lis
+
+# ignore all .bbprojectd files
+*.bbprojectd
+
+# ignore all files in any directory named archive
+archive/
