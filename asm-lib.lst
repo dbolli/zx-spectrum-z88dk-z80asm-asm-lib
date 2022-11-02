@@ -46,3 +46,4 @@ fill.asm
 setpaper.asm
 setink.asm
 detect128k.asm
+detectmachinetype.asm
